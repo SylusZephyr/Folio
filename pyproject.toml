@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "folio"
+version = "1.0.0"
+description = "Merge hundreds of PDFs into one, in exactly the order you choose. Local, fast, private."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "SylusZephyr" }]
+requires-python = ">=3.10"
+dependencies = ["pikepdf>=9"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+folio = "folio.cli:main"
+
+[tool.setuptools]
+packages = ["folio"]
+
+[tool.setuptools.package-data]
+folio = ["web/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests", "."]
